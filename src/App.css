@@ -1,15 +1,22 @@
+.App-header p {
+  visibility: visible;
+}
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 50vmin;
   pointer-events: none;
+  visibility: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .App-header p {
+    animation: App-p-change-position 1s 1 2s forwards;
+  }
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin 3s forwards 1;
   }
 }
 
@@ -24,15 +31,31 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
-  from {
+  0% {
+    visibility: visible;
+    opacity: 0%;
+    height: 30vmin;
     transform: rotate(0deg);
   }
-  to {
+  50% {
+    opacity: 100%;
+    sheight: 50vmin;
+  }
+  100% {
     transform: rotate(360deg);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes App-p-change-position {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(200px);
+    display: none;
+    opacity: 0;
   }
 }
